@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    {{ tar_class }}
+    <div class="form">
+        <form action="/training" method="post" enctype="multipart/form-data">
+            Name:<input type="text" name="uname"><br><br>
+            Email:<input type="email" name="uemail"><br><br>
+            password:<input type="password" name="upassword"><br><br>
+            Upload Datasets:<input type="file" name="upload_file" id=""><br>
+            <!-- <p>Learning method:</p>
+              Supervised<input type="radio" id="supervised" name="learnmethod" value="supervised">
+            <br>
+              Unsupervised<input type="radio" id="unsupervised" name="learnmethod" value="unsupervised">
+            <br>
+            <p>Chose the target class:</p>
+              Classification:<input type="radio" id="Classification" name="tar_class" value="Classification">
+            <br>
+              Regression:<input type="radio" id="Regression" name="tar_class" value="Regression">
+            <br> -->
+            Target Columns:<input type="text" name="tar_col_nm" id=""><br>
+            
+            <input type="submit" value="Train">
+        </form>
+</div> 
+ <!-- this is safe make the 'tar_class' html to text format for the   -->
+{{ tar_class|safe }} 
+</body>
+</html>
+

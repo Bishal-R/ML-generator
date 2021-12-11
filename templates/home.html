@@ -1,0 +1,27 @@
+<!-- extends the base file first -->
+{% extends 'base.html' %}
+<!-- giving the pages heading name -->
+{% block head %} home pages{% endblock %}
+<!-- body part for the pages -->
+{% block body %}
+<!Doctype html>
+<html>
+    <head>
+        <title>Home page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+      </head>
+<body>
+<!-- <h3>Your import data is:</h3> -->
+{{ data|safe }}
+
+<div class="btn-group">
+ <a href="/train"><button >Train</button></a>
+ <a href="/test"><button >Test</button></a>
+ <a href="/save"><button >Model</button></a>
+  
+</div>  
+
+
+</body>
+</html>
+{% endblock %}

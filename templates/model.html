@@ -1,0 +1,49 @@
+<!-- extends the base file first -->
+{% extends 'base.html' %}
+<!-- giving the pages heading name -->
+{% block head %}Save model{% endblock %}
+<!-- body part for the pages -->
+{% block body %}
+{{ msg }}
+    {% if tasks|length < 1 %}
+        <h3 >There are no file on  below!</h3>
+    {% else %}
+    <table class="center" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Datasets</th>
+            <th>Model</th>
+            <th>Date</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.uname }}</td>
+                <td>{{ task.uemail }}</td>
+                <td>{{ task.upassword }}</td>
+                <td>
+                    <a href="/download_df/{{ task.id }}">{{ task.df_name }} </a>
+                </td>
+                <td>
+                    <a href="/download_mdl/{{ task.id }}">{{ task.model_name }} </a>
+                </td>
+                
+                <td>{{ task.date_created.date() }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <br><br>
+    <!-- form for the pages -->
+    <!-- <div class="form">
+        <form action="/modeling" method="post" enctype="multipart/form-data">
+        <label for="name">Name:<input type="text" name="uname" id=""></label> <br><br>
+        <label for="email">Email:<input type="email" name="uemail" id=""></label><br><br>
+            <input type="file" name="upload_file" id="">
+            <input type="submit" value="Import">
+        </form>
+    </div> -->
+{% endblock %}
